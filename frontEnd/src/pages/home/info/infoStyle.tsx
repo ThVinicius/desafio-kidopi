@@ -1,0 +1,30 @@
+import styled from 'styled-components'
+
+const Container = styled.aside`
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+`
+
+const Title = styled.h1`
+  text-align: center;
+  font: normal 700 1.5rem 'Lato', sans-serif;
+`
+
+const Box = styled.span``
+
+const SubTitle = styled.h2`
+  font: normal 500 1.1rem 'Lato', sans-serif;
+`
+
+export { Container, Title, SubTitle, Box }
