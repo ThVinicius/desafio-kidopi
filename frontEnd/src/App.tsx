@@ -1,9 +1,21 @@
-import { useState } from 'react'
+import { FC } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ResetCSS from './assets/css/reset'
+import GlobalCSS from './assets/css/global'
+import Home from './pages/home/Index'
+import Header from './components/header/Header'
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return <h1>App</h1>
+const App: FC = () => {
+  return (
+    <BrowserRouter>
+      <ResetCSS />
+      <GlobalCSS />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App
