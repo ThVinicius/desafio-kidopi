@@ -22,8 +22,9 @@ export function useGetCountryInfo() {
     if (loading) return
     setLoading(true)
 
-    const now = dayjs().format('DD/MM/YYYY HH:mm:ss')
-    setDate(now)
+    const now = dayjs()
+    const nowFormat = now.format('DD/MM/YYYY HH:mm:ss')
+    setDate(nowFormat)
 
     const URL = `https://dev.kidopilabs.com.br/exercicio/covid.php?pais=${country}`
 
@@ -31,6 +32,14 @@ export function useGetCountryInfo() {
 
     promise
       .then(({ data }) => {
+        const API_URL = import.meta.env.VITE_API_URL
+        const payload = {
+          country,
+          search_date: now.format('YYYY-MM-DD HH:mm:ss')
+        }
+
+        axios.post(`${API_URL}/covid-stats`, payload)
+
         const infos = Object.values(data)
 
         setCountry(infos[0].Pais)
