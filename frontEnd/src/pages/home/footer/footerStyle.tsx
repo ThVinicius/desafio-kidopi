@@ -11,6 +11,10 @@ const Container = styled.footer`
 const Title = styled.h1`
   font: normal 500 1.8rem 'Lato', sans-serif;
   text-align: center;
+
+  @media (max-width: 500px) {
+    font-size: 1.1rem;
+  }
 `
 
 const Info = styled.div`
@@ -20,6 +24,10 @@ const Info = styled.div`
   align-items: center;
   gap: 9px;
   font: normal 500 1.5rem 'Lato', sans-serif;
+
+  @media (max-width: 500px) {
+    font-size: 1rem;
+  }
 `
 
 export { Container, Title, Info }

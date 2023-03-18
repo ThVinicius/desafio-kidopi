@@ -14,6 +14,12 @@ const Container = styled.aside`
   border-radius: 20px;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
     0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 600px) {
+    width: 100%;
+    margin: 15px 0;
+    position: static;
+  }
 `
 
 const Title = styled.h1`

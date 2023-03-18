@@ -21,13 +21,21 @@ const Container = styled.main`
 const Title = styled.h1`
   margin-top: 30px;
   margin-bottom: 40px;
-  font: normal 700 40px 'Lato', sans-serif;
+  font: normal 700 2.5rem 'Lato', sans-serif;
   text-align: center;
+
+  @media (max-width: 600px) {
+    font-size: 1.9rem;
+  }
 `
 
 const Box = styled.div`
   width: 100%;
   display: flex;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `
 
 export { Container, Title, Box }

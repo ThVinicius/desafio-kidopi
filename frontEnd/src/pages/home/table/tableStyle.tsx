@@ -41,6 +41,18 @@ const Input = styled.input`
   padding-left: 0.8rem;
   font: normal 400 1rem 'Lato', sans-serif;
   border-radius: 1rem;
+
+  @media (max-width: 1000px) {
+    width: 40%;
+  }
+
+  @media (max-width: 800px) {
+    width: 60%;
+  }
+
+  @media (max-width: 600px) {
+    width: 80%;
+  }
 `
 
 export { Container, Input }
