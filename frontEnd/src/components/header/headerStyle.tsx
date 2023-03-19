@@ -5,6 +5,8 @@ const Container = styled.header`
   height: 80px;
   padding: 0 20px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 const LogoContainer = styled.span`
@@ -28,4 +30,26 @@ const LogoContainer = styled.span`
   }
 `
 
-export { Container, LogoContainer }
+const Menu = styled.menu`
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+`
+
+interface ILabel {
+  active: boolean
+}
+
+const Label = styled.p<ILabel>`
+  font: normal 700 1.1rem 'Lato', sans-serif;
+  color: ${props => (props.active ? 'green' : '#000')};
+  text-decoration: ${props => (props.active ? 'underline 3px' : 'none')};
+  cursor: pointer;
+
+  :hover {
+    color: ${props => (props.active ? 'green' : 'orange')};
+  }
+`
+
+export { Container, LogoContainer, Menu, Label }
