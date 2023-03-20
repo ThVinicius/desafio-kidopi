@@ -20,3 +20,5 @@ use App\Http\Controllers\CovidStatController;
 // });
 
 Route::post('covid-stats', [CovidStatController::class, 'save']);
+
+Route::get('covid-stats', [CovidStatController::class, 'get']);

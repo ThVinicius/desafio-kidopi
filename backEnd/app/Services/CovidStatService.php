@@ -22,4 +22,9 @@ class CovidStatService
 
     return $this->covidStatRepository->save($covidStat);
   }
+
+  public function getCovidStats()
+  {
+    return $this->covidStatRepository->get();
+  }
 }

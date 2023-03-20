@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\CovidStatModel;
+use Illuminate\Support\Facades\DB;
 
 class CovidStatRepository
 {
@@ -10,5 +11,13 @@ class CovidStatRepository
   {
     $covidStats->save();
     return $covidStats->fresh();
+  }
+
+  public function get()
+  {
+    return DB::table("covid_stats")
+      ->selectRaw('country, count(*) AS incidence')
+      ->groupBy("country")
+      ->get();
   }
 }

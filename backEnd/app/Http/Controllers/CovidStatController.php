@@ -26,4 +26,11 @@ class CovidStatController extends Controller
 
         return $request;
     }
+
+    public function get()
+    {
+        $covidStats = $this->covidStatService->getCovidStats();
+
+        return response()->json($covidStats, 200);
+    }
 }
