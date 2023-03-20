@@ -34,7 +34,7 @@ class CovidStatRequest extends FormRequest
         return [
             'country.required' => 'O campo país é obrigatório.',
             'search_date.required' => 'O campo data de pesquisa é obrigatório.',
-            'search_date.date_format' => 'A data da pesquisa deve estar no formato "ano-dia-mês hora:minutos:segundos".'
+            'search_date.date_format' => 'A data da pesquisa deve estar no formato "ano-mês-dia hora:minutos:segundos".'
         ];
     }
 
