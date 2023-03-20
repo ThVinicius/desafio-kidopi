@@ -22,7 +22,6 @@
 # Sumário
 
 - [Entrega feita](#done)
-- [Link deploy](#deploy)
 - [Páginas do FrontEnd](#front-end)
   - [Casos de covid por país escolhido](#front-end-home)
   - [Diferença entre taxa de mortes](#front-end-diff)
