@@ -13,7 +13,7 @@ const Tab: FC<IProps> = ({ label, path }) => {
   const active = useMemo(() => path === pathname, [pathname])
 
   return (
-    <Link to={path}>
+    <Link to={path} data-cy={`nav-${path}`}>
       <Label active={active}>{label}</Label>
     </Link>
   )

@@ -14,8 +14,13 @@ const Form: FC<IProps> = ({ fetch }) => {
   return (
     <Container>
       <Label htmlFor="selectOpcoes">Selecione um país:</Label>
-      <Select id="selectOpcoes" name="selectOpcoes" onChange={handleOnChange}>
-        <option value="" disabled selected>
+      <Select
+        id="selectOpcoes"
+        name="selectOpcoes"
+        onChange={handleOnChange}
+        defaultValue=""
+      >
+        <option value="" disabled>
           Selecione uma opção
         </option>
         <option value="Australia">Australia</option>

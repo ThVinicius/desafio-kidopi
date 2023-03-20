@@ -33,7 +33,7 @@ const Table = ({ data }: { data: Data[] }) => {
     useTable({ columns, data: dataToDisplay })
 
   return (
-    <Container>
+    <Container data-cy="table">
       <Input
         value={filterInput}
         onChange={e => setFilterInput(e.target.value)}
