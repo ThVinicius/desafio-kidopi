@@ -26,13 +26,31 @@ class CovidStatServiceTest extends TestCase
     $covidStat = new CovidStatModel;
     $covidStat->country = $country;
     $covidStat->search_date = $searchDate;
+
     $this->covidStatRepositoryMock->expects($this->once())
       ->method('save')
       ->with($covidStat)
-      ->willReturn(true);
+      ->willReturn($covidStat);
 
     $result = $this->covidStatService->saveCovidStats($country, $searchDate);
 
-    $this->assertTrue($result);
+    $this->assertEquals($covidStat, $result);
+  }
+
+  public function testGetCovidStats()
+  {
+    $data = [
+      'country' => 'Brazil',
+      'incidence' => 1
+    ];
+
+    $this->covidStatRepositoryMock->expects($this->once())
+      ->method('get')
+      ->with()
+      ->willReturn(array($data));
+
+    $result = $this->covidStatService->getCovidStats();
+
+    $this->assertEquals(array($data), $result);
   }
 }
