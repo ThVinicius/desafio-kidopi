@@ -21,11 +21,11 @@ const Container = styled.main`
 const Title = styled.h1`
   margin-top: 30px;
   margin-bottom: 40px;
-  font: normal 700 2.5rem 'Lato', sans-serif;
+  font: normal 700 2rem 'Lato', sans-serif;
   text-align: center;
 
   @media (max-width: 600px) {
-    font-size: 1.9rem;
+    font-size: 1.5rem;
   }
 `
 
