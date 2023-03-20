@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
-import dayjs from 'dayjs'
-import 'dayjs/locale/pt-br'
+import { totalConfirmed, totalDead } from '../../utils/handleCountryInformation'
+import { currentDate } from '../../utils/currentDate'
 
 export interface IInfo {
   Pais: string
@@ -22,9 +22,9 @@ export function useGetCountryInfo() {
     if (loading) return
     setLoading(true)
 
-    const now = dayjs()
-    const nowFormat = now.format('DD/MM/YYYY HH:mm:ss')
-    setDate(nowFormat)
+    const { brFormat, euaFormat } = currentDate()
+
+    setDate(brFormat)
 
     const URL = `https://dev.kidopilabs.com.br/exercicio/covid.php?pais=${country}`
 
@@ -35,7 +35,7 @@ export function useGetCountryInfo() {
         const API_URL = import.meta.env.VITE_API_URL
         const payload = {
           country,
-          search_date: now.format('YYYY-MM-DD HH:mm:ss')
+          search_date: euaFormat
         }
 
         axios.post(`${API_URL}/covid-stats`, payload)
@@ -43,14 +43,9 @@ export function useGetCountryInfo() {
         const infos = Object.values(data)
 
         setCountry(infos[0].Pais)
-        const totalConfirmed = infos.reduce(
-          (acc, curr) => curr.Confirmados + acc,
-          0
-        )
-        const totalDead = infos.reduce((acc, curr) => curr.Mortos + acc, 0)
 
-        setConfirmed(totalConfirmed)
-        setDead(totalDead)
+        setConfirmed(totalConfirmed(infos))
+        setDead(totalDead(infos))
 
         setInfo(infos)
       })
