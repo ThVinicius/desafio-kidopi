@@ -67,7 +67,7 @@ Nessa página é possivel:
 
 <table>
   <tr>
-    <td valign="top"><img src="./frontEnd/src/assets/gif/home.gif"/></td>
+    <td valign="top"><img src="./frontEnd/src/assets/gif/covid-stats.gif"/></td>
   </tr>
 </table>
 
