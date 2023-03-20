@@ -172,6 +172,7 @@ Versões:
 
 - Node 18.15.0
 - PHP 8.2.0
+- MySql 5.5.0
 
 - Modifique o arquivo `.env` na raiz da pasta `backEnd` com suas credencias do banco de dados MySql.
 
