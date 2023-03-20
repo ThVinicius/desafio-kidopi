@@ -27,6 +27,7 @@
   - [Diferença entre taxa de mortes](#front-end-diff)
 - [Documentação das rotas da API](#api)
   - [Registrar data e hora de acesso a API-Covid-19](#post-covid-stats)
+  - [Buscar números de incidência de pesquisa por país](#get-covid-stats)
 - [Rodar localmente](#run)
 - [Rodar os testes](#tests)
 
@@ -132,6 +133,33 @@ POST /api/covid-stats
   "created_at": "2023-03-20T14:39:39.000000Z",
   "updated_at": "2023-03-20T14:39:39.000000Z"
 }
+```
+
+#
+
+<div id='get-covid-stats'/>
+
+## Buscar números de incidência de pesquisa por país
+
+Rota para buscar números de incidência de pesquisa por país
+
+```http
+GET /api/covid-stats
+```
+
+<h3>Em caso de sucesso:</h3>
+
+- Status code
+  - 200
+- Retorno:
+
+```json
+[
+  {
+    "country": "Brazil",
+    "incidence": 1
+  }
+]
 ```
 
 #
