@@ -4,8 +4,8 @@ import { Container, Input } from './tableStyle'
 
 interface Data {
   ProvinciaEstado: string
-  Confirmados: number
-  Mortos: number
+  Confirmados: string
+  Mortos: string
 }
 
 const columns: Column<Data>[] = [

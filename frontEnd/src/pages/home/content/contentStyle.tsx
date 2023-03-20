@@ -11,11 +11,10 @@ const Container = styled.main`
   background: #ece9e6;
   background: -webkit-linear-gradient(to bottom, #ffffff, #ece9e6);
   background: linear-gradient(to bottom, #ffffff, #ece9e6);
-
-  span {
-    width: 100%;
-    padding: 20px;
-  }
+`
+const Span = styled.span`
+  width: 100%;
+  padding: 20px;
 `
 
 const Title = styled.h1`
@@ -38,4 +37,4 @@ const Box = styled.div`
   }
 `
 
-export { Container, Title, Box }
+export { Container, Title, Box, Span }
