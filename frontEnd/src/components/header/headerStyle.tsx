@@ -28,6 +28,16 @@ const LogoContainer = styled.span`
       font-size: 1.5rem;
     }
   }
+
+  @media (max-width: 475px) {
+    img {
+      height: 40px;
+    }
+
+    h1 {
+      font-size: 1.1rem;
+    }
+  }
 `
 
 const Menu = styled.menu`
@@ -35,6 +45,10 @@ const Menu = styled.menu`
   display: flex;
   justify-content: end;
   gap: 20px;
+
+  @media (max-width: 411px) {
+    gap: 5px;
+  }
 `
 
 interface ILabel {
@@ -49,6 +63,10 @@ const Label = styled.p<ILabel>`
 
   :hover {
     color: ${props => (props.active ? 'green' : 'orange')};
+  }
+
+  @media (max-width: 411px) {
+    font-size: 0.9rem;
   }
 `
 
