@@ -17,23 +17,19 @@ const Card: FC<IProps> = ({
   diffDeathRate
 }) => {
   return (
-    <>
-      {diffDeathRate !== null && (
-        <Container data-cy="card-diff">
-          <h1>
-            <Country>{firstCountry} </Country>(taxa de mortes:{' '}
-            <Diff>{firstDeathRate}</Diff>)
-          </h1>
-          <h1>
-            <Country>{secondCountry} </Country>(taxa de mortes:{' '}
-            <Diff>{secondDeathRate}</Diff>)
-          </h1>
-          <h1>
-            Diferença entre as taxas de mortes: <Diff>{diffDeathRate}</Diff>
-          </h1>
-        </Container>
-      )}
-    </>
+    <Container show={diffDeathRate !== null} data-cy="card-diff">
+      <h1>
+        <Country>{firstCountry} </Country>(taxa de mortes:{' '}
+        <Diff>{firstDeathRate}</Diff>)
+      </h1>
+      <h1>
+        <Country>{secondCountry} </Country>(taxa de mortes:{' '}
+        <Diff>{secondDeathRate}</Diff>)
+      </h1>
+      <h1>
+        Diferença entre as taxas de mortes: <Diff>{diffDeathRate}</Diff>
+      </h1>
+    </Container>
   )
 }
 

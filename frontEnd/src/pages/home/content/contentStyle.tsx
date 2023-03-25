@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { fadeInWithTranslate } from '../../../assets/css/animations'
 
 const Container = styled.main`
   width: 100vw;
@@ -28,9 +29,21 @@ const Title = styled.h1`
   }
 `
 
-const Box = styled.div`
+interface IBox {
+  show: boolean
+}
+
+const Box = styled.div<IBox>`
   width: 100%;
   display: flex;
+  opacity: ${props => (props.show ? '1' : '0')};
+  transform: translateX(${props => (props.show ? '0' : '-10%')});
+  animation: ${props =>
+    props.show
+      ? css`
+          ${fadeInWithTranslate} 0.5s ease-in-out
+        `
+      : ''};
 
   @media (max-width: 600px) {
     flex-direction: column;

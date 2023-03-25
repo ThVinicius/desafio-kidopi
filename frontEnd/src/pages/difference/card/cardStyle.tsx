@@ -1,6 +1,11 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { fadeInWithTranslate } from '../../../assets/css/animations'
 
-const Container = styled.aside`
+interface IContainer {
+  show: boolean
+}
+
+const Container = styled.aside<IContainer>`
   width: 80%;
   padding: 20px;
   margin-top: 35px;
@@ -13,6 +18,14 @@ const Container = styled.aside`
   border-radius: 20px;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
     0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  opacity: ${props => (props.show ? '1' : '0')};
+  transform: translateX(${props => (props.show ? '0' : '-10%')});
+  animation: ${props =>
+    props.show
+      ? css`
+          ${fadeInWithTranslate} 0.5s ease-in-out
+        `
+      : ''};
 
   h1 {
     font: normal 400 1.2rem 'Lato', sans-serif;

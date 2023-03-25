@@ -53,5 +53,5 @@ export function useGetCountryInfo() {
       .finally(() => setLoading(false))
   }
 
-  return { fetch, country, dead, confirmed, info, date }
+  return { fetch, country, dead, confirmed, info, setInfo, date, loading }
 }

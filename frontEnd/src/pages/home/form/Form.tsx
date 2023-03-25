@@ -1,13 +1,16 @@
-import { ChangeEvent, FC } from 'react'
+import { ChangeEvent, Dispatch, FC, SetStateAction } from 'react'
+import { IInfo } from '../../../hooks/apiCovidKidopi/useGetCountryInfo'
 import { Container, Label, Select } from './formStyle'
 
 interface IProps {
   fetch: (country: string) => void
+  setInfo: Dispatch<SetStateAction<IInfo[] | null>>
 }
 
-const Form: FC<IProps> = ({ fetch }) => {
+const Form: FC<IProps> = ({ fetch, setInfo }) => {
   const handleOnChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target
+    setInfo(null)
     fetch(value)
   }
 

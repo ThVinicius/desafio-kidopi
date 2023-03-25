@@ -5,9 +5,9 @@ import useDiffDeathRate from '../../../hooks/apiCovidKidopi/useDiffDeathRate'
 import Form from '../form/Form'
 import { Title } from '../../home/content/contentStyle'
 import { Box, Container, FormBox } from './contentStyle'
-
 import Card from '../card/Card'
 import Footer from '../footer/Footer'
+import Loading from '../../../components/loading/Loading'
 
 const Content: FC = () => {
   const [firstCountry, setFirstCountry] = useState('')
@@ -18,7 +18,7 @@ const Content: FC = () => {
     firstCountry,
     secondCountry
   )
-  const { firstDeathRate, secondDeathRate, diffDeathRate, date } =
+  const { firstDeathRate, secondDeathRate, diffDeathRate, date, loading } =
     useDiffDeathRate(firstCountry, secondCountry)
 
   useEffect(() => fetch(), [])
@@ -41,15 +41,19 @@ const Content: FC = () => {
             setValue={setSecondCountry}
           />
         </FormBox>
-        <Card
-          {...{
-            firstCountry,
-            secondCountry,
-            firstDeathRate,
-            secondDeathRate,
-            diffDeathRate
-          }}
-        />
+        {diffDeathRate !== null ? (
+          <Card
+            {...{
+              firstCountry,
+              secondCountry,
+              firstDeathRate,
+              secondDeathRate,
+              diffDeathRate
+            }}
+          />
+        ) : (
+          <Loading loading={loading} />
+        )}
       </Box>
       <Footer {...{ firstCountry, secondCountry, date }} />
     </Container>

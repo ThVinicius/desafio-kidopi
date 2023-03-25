@@ -12,9 +12,12 @@ export default function useDiffDeathRate(
   const [secondDeathRate, setSecondDeathRate] = useState<number | null>(null)
   const [diffDeathRate, setDiffDeathRate] = useState<number | null>(null)
   const [date, setDate] = useState('')
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if (firstCountry === '' || secondCountry === '') return
+    setLoading(true)
+    setDiffDeathRate(null)
 
     const { brFormat, euaFormat } = currentDate()
 
@@ -27,8 +30,8 @@ export default function useDiffDeathRate(
       `${URL}${secondCountry}`
     )
 
-    Promise.all([firstInfoPromise, secondInfoPromise]).then(
-      ([first, second]) => {
+    Promise.all([firstInfoPromise, secondInfoPromise])
+      .then(([first, second]) => {
         const firstInfo = Object.values(first.data)
         const secondInfo = Object.values(second.data)
 
@@ -62,9 +65,15 @@ export default function useDiffDeathRate(
 
         axios.post(`${API_URL}/covid-stats`, firstPayload)
         axios.post(`${API_URL}/covid-stats`, secondPayload)
-      }
-    )
+      })
+      .finally(() => setLoading(false))
   }, [firstCountry, secondCountry])
 
-  return { firstDeathRate, secondDeathRate, diffDeathRate, date }
+  return {
+    firstDeathRate,
+    secondDeathRate,
+    diffDeathRate,
+    date,
+    loading
+  }
 }
